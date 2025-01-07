@@ -3,9 +3,6 @@ name: deploy to EC2 using docker
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-    types: [closed]  # PR이 닫힐 때(머지 포함)
 
 
 env:
@@ -20,7 +17,6 @@ env:
 
 jobs:
   build-and-push:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
