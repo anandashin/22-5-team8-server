@@ -23,3 +23,15 @@ class InvalidTokenError(HTTPException):
 class BlockedTokenError(HTTPException):
     def __init__(self) -> None:
         super().__init__(status_code=401, detail="Blocked token")
+
+class PermissionDeniedError(HTTPException):
+    def __init__(self) -> None:
+        super().__init__(status_code=401, detail="Permission denied")
+
+class InvalidFormatError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=400, detail="Invalid format")
+
+class InvalidRangeError(HTTPException):
+    def __init__(self):
+        super().__init__(status_code=400, detail="Invalid range")
